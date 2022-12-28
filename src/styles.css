@@ -67,6 +67,7 @@ body{
     align-items: center;
     flex-direction: column;
     color: #fff;
+    margin: auto;
 }
 .section-1 h1{
     font-size: 70px;
@@ -104,7 +105,6 @@ body{
     padding: 40px;
     text-align: center;
     margin: auto;
-    margin-top: 5%;
     color: white;
 }
 .box-img{
@@ -301,7 +301,7 @@ form button{
         background:rgba(0, 0, 0, 0.4);
         transition: all .5s;
     }
-    .navbar ul li{
+    .navbar ul li {
         display: block;
         margin-left: 195px;
         margin-right: 195px;
@@ -317,5 +317,20 @@ form button{
     }
 }
 @media screen and (max-width: 600px) {
-
+    .logo {
+        height: 75px;
+        padding-top: 15px;
+        cursor: pointer;
+    }
+    .box {
+        width: 300px;
+    }
+    .carousel .carousel__actions {
+        top: 90%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .box {
+        width: 200px;
+    }
 }
