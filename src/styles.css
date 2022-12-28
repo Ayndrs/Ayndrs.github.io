@@ -80,7 +80,7 @@ body{
     font-size: 20px;
 }
 .section-2{
-    height: 100vh;
+    height: 150vh;
 }
 .section-2 h1{
     margin: 25px 0px;
@@ -90,7 +90,7 @@ body{
     font-size: 20px;
 }
 .section-3 {
-    height: 100vh;
+    height: 106vh;
 }
 .section-3 h1{
     margin: 25px 0px;
@@ -303,8 +303,8 @@ form button{
     }
     .navbar ul li {
         display: block;
-        margin-left: 195px;
-        margin-right: 195px;
+        margin-left: 100px;
+        margin-right: 100px;
     }
     .navbar ul li a {
         font-size: 25px;
@@ -328,9 +328,47 @@ form button{
     .carousel .carousel__actions {
         top: 90%;
     }
+    .section-1 h1{
+        font-size: 40px;
+        margin-top: 80px;
+    }
+    .section-1 p{
+        margin: 10px auto;
+        font-weight: 100;
+        line-height: 25px;
+        font-size: 15px;
+    }
 }
 @media screen and (max-width: 450px) {
     .box {
-        width: 200px;
+        width: 250px;
+    }
+    .section-2 h1{
+        margin: 10px 0px;
+    }
+    .section-2 p{
+        margin: 50px 0px;
+        font-size: 20px;
+    }
+    .section-3 {
+        height: 106vh;
+    }
+    .section-3 h1{
+        margin: 25px 0px;
+    }
+    .section-4 {
+        height: 100vh;
+    }
+    .logo {
+        height: 50px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        cursor: pointer;
+    }
+    .navbar{
+        padding: 10px 20.5px;
+    }
+    .navbar i {
+        font-size: 30px;
     }
 }
