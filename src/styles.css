@@ -8,8 +8,8 @@
 }
 body{
     width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../img/background_1.jpg);
+    height: calc(100vh - 80px);
+    background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../img/background_1.jpg) no-repeat;
     background-size: cover;
     background-size: center;
     background-attachment: fixed;
@@ -19,10 +19,7 @@ body{
 .navbar{
     width: 100%;
     padding: 20px 50.5px;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;         
+    box-sizing: border-box;        
     position: fixed;
     z-index: 2;
     background: rgba(0, 0, 0, 0.5);
@@ -32,23 +29,22 @@ body{
     height: 100px;
     cursor: pointer;
 }
-ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navbar ul{
+    float: right;
+    margin-right: 20px;
 }
-ul li{
-    list-style: none;
-    margin: 0 20px;
-    position: relative;
+.navbar ul li{
+    display: inline-block;
+    line-height: 50px;
+    margin: 30 15px;
 }
-ul li a{
+.navbar ul li a{
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
     font-size: 25px;
 }
-ul li::after{
+.navbar ul li::after{
     content: '';
     height: 3px;
     width: 0;
@@ -58,7 +54,7 @@ ul li::after{
     bottom: -10;
     transition: 0.5s;
 }
-ul li:hover::after{
+.navbar ul li:hover::after{
     width: 100%;
 }
 .section-1{
@@ -276,4 +272,47 @@ form button{
     width: 150px;
     margin: 20px auto 0;
     border-radius: 30px;
+}
+.checkbtn{
+    color: white;
+    float: right;
+    line-height: 50px;
+    margin-right: -10px;
+    cursor: pointer;
+    display: none;
+}
+#check {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .checkbtn {
+        display: block;
+    }
+    .navbar ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 148px;
+        right: -110%;
+        text-align: center;
+        backdrop-filter: blur(0.5rem);
+        -webkit-backdrop-filter: blur(0.5rem);
+        background:rgba(0, 0, 0, 0.4);
+        transition: all .5s;
+    }
+    .navbar ul li{
+        display: block;
+        margin-left: 235px;
+        margin-right: 235px;
+    }
+    .navbar ul li a {
+        font-size: 25px;
+    }
+    .navbar ul li:hover::after{
+        width: 100%;
+    }
+    #check:checked ~ ul {
+        right: -20;
+    }
 }
