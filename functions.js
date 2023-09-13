@@ -14,8 +14,8 @@ function toggleStyleSheet(){
 }
 
 
-window.onload = function(){
-    document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
-}
+// window.onload = function(){
+//     document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
+// }
 
 
