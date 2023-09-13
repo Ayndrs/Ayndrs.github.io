@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'Mont';
+    src: url(fonts/MONT-EXTRALIGHTDEMO.OTF);
+}
+@font-face {
+    font-family: 'Sitka';
+    src: url(fonts/SITKA.TTC);
+}
+@font-face {
+    font-family: 'Ebrima';
+    src: url(fonts/EBRIMA.TTF) format('truetype');
+}
+@font-face {
+    font-family: 'Cavier';
+    src: url(fonts/CAVIARDREAMS_BOLD.TTF) format('truetype');
+}
+@font-face {
+    font-family: 'MontB';
+    src: url(fonts/Mont-HeavyDEMO.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url(img/bg2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+nav{
+    margin: 2em;
+    z-index: 1;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.name{
+    font-family: 'Cavier';
+    font-size: 1.75em;
+    letter-spacing: 0.2em;
+    position: relative;
+}
+.selection{
+    font-family: 'Mont';
+    display: flex;
+    flex-direction: row;
+}
+.socials{
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.smg{
+    height: 30px;
+    filter: invert(1);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    color: #5cffa0;
+}
+li{
+    font-size: 1.75em;
+    letter-spacing: 0.1em;
+    line-height: 2.2em;
+    list-style-type: none;
+}
+.mainSec{
+    display: flex;
+    flex-direction: row;
+}
+.midText{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: auto;
+    font-family: 'Ebrima';
+    font-size: 2em;
+    letter-spacing: 1em;
+}
+.midText h2{
+    opacity: 75%;
+}
+.midText h3{
+    opacity: 50%;
+}
+.midText h4{
+    opacity: 25%;
+}
+.qualText{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: auto;
+    font-family: 'Ebrima';
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    line-height: 2em;
+}
+.midBox{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: auto;
+    font-family: 'Ebrima';
+    font-size: 2em;
+    letter-spacing: 0.15em;
+}
+.midBox p{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.port{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.project1{
+    height: 300px;
+}
+.project2{
+    height: 300px;
+    margin: 2.5%;
+}
+.experiences{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-family: 'Mont';
+}
+.jobs{
+    display: flex;
+    flex-direction: row;
+}
+.tut{
+    margin-right: 1em;
+    border-radius: 5%;
+    height: 400px;
+    filter: invert(1);
+}
+.ecc{
+    margin-left: 1em;
+    border-radius: 5%;
+    height: 400px;
+    filter: invert(1);
+}
+.firstP{
+    margin-bottom: 20px;
+}
+button{
+    height: 40px;
+    font-family: 'Mont';
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    color: white;
+    font-size: 2em;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1;
+    cursor: pointer;
+}
+button:hover{
+    color: #5cffa0;
+}
+footer{
+    font-size: 1.2em;
+    padding: 1.5em;
+    text-align: center;
+    position: fixed;
+    color: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.footer-bottom{
+    font-family: 'Sitka', 'Banner';
+}
+
+@media screen and (max-width: 1920px){
+    .midBox{
+        font-size: 1em;
+        
+    }
+    .name{
+        font-size: 1.5em;
+    }
+    li{
+        font-size: 1.2em;
+    }
+    .project1{
+        height: 200px;
+    }
+    .project2{
+        height: 200px;
+    }
+    .midText{
+        font-size: 1.25em;
+    }
+    .qualText{
+        font-size: 1em;
+    }
+    .tut{
+        height: 200px;
+    }
+    .ecc{
+        height: 200px;
+    }
+    footer{
+        font-size: 0.75em;
+    }
+    .smg{
+        height: 22px;
+    }
+}

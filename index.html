@@ -1,89 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>Gohyun</title>
-        <link rel="stylesheet" href="src/styles.css">
+        <link id="mainStyleSheet" rel="stylesheet" href="styles.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <title>Home | Gohyun</title>
     </head>
     <body>
         <main>
-            <div class="navbar">
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                <i class="fa fa-bars fa-3x"></i>
-                </label>
-
-
-                <a href="index.html"><img src="img/logo.png" class="logo"></a>
-
-                <ul>
-                    <li><a href="#about-me">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contacts">Contact</a></li>
-                </ul>
-            </div>
-            <div class="section-1">
-                <h1>GOHYUN</h1>
-                <p>Student & Software Developer</p>
-            </div>
-            <div class="section-2">
-                <div class="box" id="about-me">
-                    <h1>ABOUT ME</h1>
-                    <img src="img/pfp.jpg" alt="" class="box-img">
-                    <p>Junior CS major at Texas A&M</p>
-                    <p>I can fluently speak English and Korean</p>
-                    <p>Skills: HTML, CSS, Javascript, Python, C++, SQL, Tailwind, React Native, Git, Firebase, Haskell</p>
+            <div class="mainSec">
+                <nav>
+                    <div class="name">
+                        <a href="index.html">gohyun kim</a>
+                    </div>
+                    <div class="selection">
+                        <ul>
+                            <li><a href="introduction.html">INTRODUCTION</a></li>
+                            <li><a href="portfolio.html">PORTFOLIO</a></li>
+                            <li><a href="qualifications.html">QUALIFICATIONS</a></li>
+                            <li><a href="service.html">SERVICE</a></li>
+                            <li><a href="ai.html">AI-GENERATED</a></li>
+                            <li class="socials">
+                                <a href="https://github.com/Ayndrs" target=”_blank”><img src="img/github.png" class="smg"></i></a>
+                                <a href="https://www.linkedin.com/in/gohyun" target=”_blank”><img src="img/linkedin.png" class="smg"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="midText">
+                    <h4>hello</h4>
+                    <h3>hello</h3>
+                    <h2>hello</h2>
+                    <h1>hello</h1>
+                    <h2>hello</h2>
+                    <h3>hello</h3>
+                    <h4>hello</h4>
                 </div>
-            </div>
-            <div class="section-3">
-                <div class="box" id="projects">
-                    <h1>PROJECTS</h1>
-                    <div class="carousel">
-                        <div class="carousel__item carousel__item--visible">
-                          <a href="https://github.com/ewbyf/MrRecipe"><img src="img/Mr_Recipe.png" /></a>
-                        </div>
-                        <div class="carousel__item">
-                          <a href="https://github.com/ewbyf/MrRecipe"><img src="img/Mr_Recipe.png" /></a>
-                        </div>
-                  
-                        <div class="carousel__actions">
-                          <button id="carousel__button--prev" aria-label="Previous slide"><</button>
-                          <button id="carousel__button--next" aria-label="Next slide">></button>
-                        </div>
-                      </div>
-                </div>
-            </div>
-            <div class="section-4">
-                <div class="box" id="contacts">
-                    <h1>CONTACT</h1>
-                    <form action="https://formsubmit.co/andr3wkm123@gmail.com" method="POST"> 
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New submission!">
-                        <input type="text" name="name" placeholder="Name" required>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <input type="hidden" name="_next" value="https://Ayndrs.github.io/thankyou.html">
-                        <input type="text" name="message" placeholder="Message" required>
-                        <button type="submit">Send</button>
-                    </form>
-                </div>
+                <button onclick="toggleStyleSheet()" type="button"><p>Toggle</p></button>
             </div>
         </main>
 
         <footer>
-            <div class="footer-content">
-                <h3>GOHYUN</h3>
-                <ul class="socials">
-                    <li><a href="https://github.com/Ayndrs"><i class="fa fa-github fa-2x"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/gohyun"><i class="fa fa-linkedin fa-2x"></i></a></li>
-                </ul>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 gohyun</p>
+                &copy;2023 gohyun
             </div>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="app.js"></script>
-    </body>             
+        <script src="functions.js"></script>
+    </body>
 </html>
