@@ -140,7 +140,7 @@ li{
 .port{
     height: 100vh;
     width: 100%;
-    position: absolute;
+    position: relative;
     text-align: center;
     display: flex;
     justify-content: center;
