@@ -15,11 +15,11 @@ function toggleStyleSheet(){
 
 
 window.onload = function(){
+    document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
     let a = document.getElementById("mainStyleSheet").href;
     if (a == NULL){
-        document.getElementById("mainStyleSheet").href = localStorage.getItem("cur"); 
+        a = "styles.css";
     }
-    document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
 }
 
 
