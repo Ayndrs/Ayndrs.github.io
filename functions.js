@@ -15,10 +15,9 @@ function toggleStyleSheet(){
 
 
 window.onload = function(){
-    document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
-    let a = document.getElementById("mainStyleSheet").href;
-    if (a == NULL){
-        a = "styles.css";
+    let style = localStorage.getItem("cur");
+    if (style){
+        document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
     }
 }
 
