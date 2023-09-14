@@ -14,8 +14,12 @@ function toggleStyleSheet(){
 }
 
 
-// window.onload = function(){
-//     document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
-// }
+window.onload = function(){
+    let a = document.getElementById("mainStyleSheet").href;
+    if (a == NULL){
+        document.getElementById("mainStyleSheet").href = localStorage.getItem("cur"); 
+    }
+    document.getElementById("mainStyleSheet").href = localStorage.getItem("cur");
+}
 
 
