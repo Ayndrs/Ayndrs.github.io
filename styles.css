@@ -44,6 +44,7 @@ nav{
     letter-spacing: 0.2em;
     position: relative;
     margin-bottom: 1.5em;
+    width: max-content;
 }
 .selection{
     font-family: 'Mont';
@@ -196,12 +197,39 @@ footer{
     padding: 1.5em;
     text-align: center;
     position: fixed;
+    align-items: center;
     left: 0;
     right: 0;
     bottom: 0;
 }
 .footer-bottom{
     font-family: 'Sitka', 'Banner';
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0.5em;
+    display: flex;
+    gap: 1.25em;
+}
+
+.icon {
+    width: 26px;
+    height: 26px;
+    filter: grayscale(100%) brightness(0);
+    transition: filter 0.3s ease;
+}
+
+.icon:hover {
+    filter: none;
 }
 
 @media screen and (max-width: 1920px){
