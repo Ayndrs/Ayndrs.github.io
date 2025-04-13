@@ -10,9 +10,6 @@
     margin-right: 5em;
     cursor: pointer;
     overflow: hidden;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0;
 }
 
 .video-preview::after {
