@@ -1,0 +1,51 @@
+/* footer.css */
+footer {
+    font-size: 1.2em;
+    padding: 1.5em;
+    text-align: center;
+    position: fixed;
+    align-items: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.footer-bottom {
+    font-family: 'Sitka', 'Banner';
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials{
+    flex-direction: row;
+    letter-spacing: 0.25em;
+}
+
+.social-icons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0.5em;
+    gap: 1.25em;
+}
+
+.icon {
+    width: 26px;
+    height: 26px;
+    filter: grayscale(100%) brightness(0);
+    transition: filter 0.3s ease;
+}
+
+.icon:hover {
+    filter: none;
+}
+
+@media screen and (max-width: 1920px) {
+    footer {
+        font-size: 0.75em;
+    }
+}

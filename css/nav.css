@@ -1,0 +1,109 @@
+/* nav.css */
+@font-face {
+    font-family: 'Cavier';
+    src: url('../fonts/CAVIARDREAMS_BOLD.TTF') format('truetype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Mont';
+    src: url('../fonts/MONT-EXTRALIGHTDEMO.OTF');
+    font-display: swap;
+}
+
+nav {
+margin: 2em;
+max-width: 20%;
+height: 100vh;
+z-index: 1;
+}
+
+.name {
+font-family: 'Cavier';
+font-size: 1.75em;
+letter-spacing: 0.2em;
+position: relative;
+margin-bottom: 1.5em;
+width: max-content;
+}
+
+.selection {
+font-family: 'Mont';
+flex-direction: row;
+padding-left: 2em;
+position: relative;
+}
+
+.selection::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0%;
+    width: 1px;
+    background-color: black;
+    animation: growLine 1.5s ease forwards;
+    animation-delay: 1s;
+}
+
+nav .name a,
+nav .selection li {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+nav .name a {
+    animation-delay: 0.3s;
+}
+nav .selection li:nth-child(1) {
+    animation-delay: 0.5s;
+}
+nav .selection li:nth-child(2) {
+    animation-delay: 0.7s;
+}
+nav .selection li:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+    li a:hover {
+    color: #f59eff;
+    }
+li {
+    font-size: 1.75em;
+    letter-spacing: 0.1em;
+    line-height: 2.2em;
+}
+
+@keyframes growLine {
+    from {
+        height: 0%;
+        opacity: 0;
+    }
+    to {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    li {
+        font-size: 1.2em;
+    }
+}

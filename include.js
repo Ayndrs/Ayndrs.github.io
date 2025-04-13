@@ -10,11 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
-  
-        const yearSpan = document.getElementById("year");
-        if (yearSpan) {
-          yearSpan.textContent = new Date().getFullYear();
-        }
-      });
+
+    fetch("components/videoModal.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("videoModal-placeholder").innerHTML = data;
+    });
+
+    const yearSpan = document.getElementById("year");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
   });
   
