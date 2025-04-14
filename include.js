@@ -22,27 +22,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const mainContainer = document.querySelector(".main-container"),
         imagePreview = mainContainer.querySelectorAll(".image-preview"),
         images = mainContainer.querySelectorAll(".image-preview img")
-    
-      window.onload = () => {
-        mainContainer.onmouseenter = () => {
-          images.forEach((image) => {
-            image.style.opacity = 0.5;
-          })
-        }
-        mainContainer.onmouseleave = () => {
-          images.forEach((image) => {
-            image.style.opacity = 1;
-          })
-        }
-    
-        let tl = gsap.timeline();
-    
-        tl.to(imagePreview, {
-          duration: 1,
-          clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
-          stagger: 0.1
+
+      if (mainContainer) {
+        setTimeout(() => {
+          mainContainer.classList.add("visible");
+        }, 50);
+      }
+
+      mainContainer.onmouseenter = () => {
+        images.forEach((image) => {
+          image.style.opacity = 0.5;
         })
-    
+      }
+      mainContainer.onmouseleave = () => {
+        images.forEach((image) => {
+          image.style.opacity = 1;
+        })
       }
     })
         

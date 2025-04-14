@@ -11,18 +11,24 @@
 }
 .main-container {
     position: relative;
-    width: 85vw;
+    width: 80vw;
     height: 75vh;
     display: flex;
     background: black;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.main-container.visible {
+    opacity: 1;
+    animation: appear 1000ms ease-in-out forwards;
 }
 
 .main-container .image-preview {
     flex: 1;
     position: relative;
     overflow: hidden;
-    transition: all 1s cubic bezier(0.08, 0.82, 0.17, 1);
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    transition: all 1s cubic-bezier(0.08, 0.82, 0.17, 1);
 }
 
 .main-container .image-preview:hover {
@@ -33,7 +39,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 1s cubic bezier(0.08, 0.82, 0.17, 1);
+    transition: all 1s cubic-bezier(0.08, 0.82, 0.17, 1);
 }
 
 .main-container .image-preview:hover img {
@@ -63,7 +69,7 @@
     padding: 1rem;
     opacity: 0;
     transform: translateY(100%);
-    transition: all 0.5s cubic-beizer(0.23, 1, 0.32, 1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .main-container .image-preview .overlay .desc h1 {
@@ -82,4 +88,13 @@
 
 .tech-stack {
     margin-top: 1em;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

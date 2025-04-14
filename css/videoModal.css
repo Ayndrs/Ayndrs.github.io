@@ -4,10 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40vw;
+    width: 80vw;
     height: 60vh;
-    margin-left: 5em;
-    margin-right: 5em;
     cursor: pointer;
     overflow: hidden;
 }
@@ -66,19 +64,11 @@
     display: none;
     align-items: center;
     justify-content: center;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 500ms ease;
     pointer-events: auto;
-}
-
-.video-modal box-icon {
-    width: 5rem;
-    height: 5rem;
-    fill: #000;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    cursor: pointer;
 }
 
 .video-modal .video {
@@ -108,3 +98,30 @@
 .video-modal.inactive {
     opacity: 0;
 } 
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    scroll-snap-align: start;
+    animation: appear 1000ms ease-in-out forwards;
+}
+
+.things {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
