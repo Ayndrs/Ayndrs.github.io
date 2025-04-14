@@ -11,6 +11,42 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(data => {
         document.getElementById("footer-placeholder").innerHTML = data;
 
+    fetch("components/projectSupport.html")
+    .then(res => res.text())
+    .then(data => {
+      const projectPlaceholder = document.getElementById("project-placeholder");
+      if (!projectPlaceholder) return;
+
+      projectPlaceholder.innerHTML = data;
+    
+      const mainContainer = document.querySelector(".main-container"),
+        imagePreview = mainContainer.querySelectorAll(".image-preview"),
+        images = mainContainer.querySelectorAll(".image-preview img")
+    
+      window.onload = () => {
+        mainContainer.onmouseenter = () => {
+          images.forEach((image) => {
+            image.style.opacity = 0.5;
+          })
+        }
+        mainContainer.onmouseleave = () => {
+          images.forEach((image) => {
+            image.style.opacity = 1;
+          })
+        }
+    
+        let tl = gsap.timeline();
+    
+        tl.to(imagePreview, {
+          duration: 1,
+          clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+          stagger: 0.1
+        })
+    
+      }
+    })
+        
+
     fetch("components/videoModal.html")
       .then(res => res.text())
       .then(data => {
@@ -98,4 +134,3 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
-  
