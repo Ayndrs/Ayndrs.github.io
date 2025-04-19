@@ -87,7 +87,34 @@
 }
 
 .tech-stack {
+    display: flex;
+    flex-direction: row;
     margin-top: 1em;
+    gap: 1em; 
+    align-items: center; 
+}
+
+.projectButton {
+    all: unset; 
+    background-color: #ff5c8a;
+    color: white;
+    padding: 0.6em 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s;
+}
+  
+  .projectButton:hover {
+    background-color: #ff3d6a;
+    color: white;
+}
+
+.desc img {      
+    max-width: 2vw;        
+    max-height: 5vh;  
 }
 
 @keyframes appear {
