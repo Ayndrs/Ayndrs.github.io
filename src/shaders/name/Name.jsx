@@ -1,8 +1,8 @@
 import { shaderMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
-import vertexShader from './shaders/name/text.vert?raw'
-import fragmentShader from './shaders/name/text.frag?raw'
+import vertexShader from './text.vert?raw'
+import fragmentShader from './text.frag?raw'
 
 export const Name = shaderMaterial(
   {

@@ -1,8 +1,9 @@
 import { useThree, useFrame } from '@react-three/fiber'
-import { Text } from '@react-three/drei'
+import { Float, Text } from '@react-three/drei'
 import { useEffect, useRef } from 'react'
+import { Perf } from 'r3f-perf'
 
-import { Name } from './Name.jsx'
+import { Name } from './shaders/name/Name.jsx'
 
 export default function Experience() {
     const { camera } = useThree()
@@ -34,17 +35,27 @@ export default function Experience() {
 
     return (
         <>
-            <color args={['#000000']} attach="background" />
+            <Perf position="top-left" />
+            <color args={['#00aeff']} attach="background" />
 
-            <Text
-                font="./fonts/Poppins-Medium.ttf"
-                fontSize={1}
-                color="white"
-                anchorX="center"
-                anchorY="middle"
+            <Float
+                speed={5} 
+                rotationIntensity={0.25} 
+                floatIntensity={1} 
+                floatingRange={[-0.05, 0.05]} 
             >
-                gohyun
-            </Text>
+                <Text
+                    font="./fonts/Poppins-Medium.ttf"
+                    fontSize={1}
+                    color="white"
+                    anchorX="center"
+                    anchorY="middle"
+                    textAlign='center'
+                    maxWidth={2}
+                >
+                    gohyun
+                </Text>
+            </Float>
         </>
     )
 }
