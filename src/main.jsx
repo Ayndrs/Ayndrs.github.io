@@ -2,10 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
-import './style.css'
+import Cursor from './components/Cursor.jsx'
+import Navbar from './components/Navbar.jsx'
+import './styles/style.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Cursor />
+    <Navbar />
     <Canvas
         camera={ {
             fov: 45,

@@ -1,6 +1,6 @@
 import { extend, useThree, useFrame } from '@react-three/fiber'
-import { Float, Text } from '@react-three/drei'
-import { useEffect, useRef } from 'react'
+import { Html, Float, Text } from '@react-three/drei'
+import { useState, useEffect, useRef } from 'react'
 import { Perf } from 'r3f-perf'
 import { Name } from './shaders/name/Name.jsx'
 
@@ -55,7 +55,7 @@ export default function Experience() {
                     maxWidth={2}
                 >
                     gohyun
-                    <name ref={mouse} uColor="white" />
+                    {/* <name ref={mouse} uColor="white" /> */}
                 </Text>
             </Float>
         </>
