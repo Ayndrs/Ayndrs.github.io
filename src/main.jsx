@@ -1,9 +1,12 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
+import { Loader } from '@react-three/drei'
+
 import Experience from './Experience.jsx'
 import Cursor from './components/Cursor.jsx'
 import Navbar from './components/Navbar.jsx'
+
 import './styles/style.css'
 
 createRoot(document.getElementById('root')).render(
@@ -18,7 +21,10 @@ createRoot(document.getElementById('root')).render(
             position: [ 0, 0, 10 ]
         } }
     >
-        <Experience />
+    <Suspense fallback={null}>
+      <Experience />
+    </Suspense>
     </Canvas>
+    <Loader />
   </StrictMode>,
 )

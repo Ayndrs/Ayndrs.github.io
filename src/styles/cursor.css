@@ -1,6 +1,6 @@
-html, body, a, [role=button], button, [type=button]:not(:disabled) {
+/* html, body, a, [role=button], button, [type=button]:not(:disabled) {
   cursor: none;
-}
+} */
 
 #cursor {
   position: fixed;
@@ -13,9 +13,9 @@ html, body, a, [role=button], button, [type=button]:not(:disabled) {
   /* background-color: #ffffff; */
   border-radius: 50%;
   transform-origin: 50% 50%;
-  transform: translate(+50%, -50%);
+  transform: translate(-50%, -50%);
   will-change: width, height, transform, border;
   z-index: 99999;
   pointer-events: none;
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
 }

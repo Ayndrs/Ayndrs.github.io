@@ -2,29 +2,42 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  padding: 20px;
+  z-index: 1000;
+  padding: 50px 0;
+  /* background: rgba(0,0,0,0.3); */
+}
+
+.navbar-container {
+  margin: 0 auto; 
   display: flex;
   justify-content: flex-end; 
-  z-index: 1000;
+  padding: 0 75px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 50px;
   margin: 0;
   padding: 0;
 }
 
 .navbar a {
   color: white;
+  font-size: 24px;
   text-decoration: none;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   transition: color 0.2s;
 }
 
 .navbar a:hover {
-  color: #6c6bc2; 
+  color: #000000;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
 }

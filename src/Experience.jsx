@@ -1,6 +1,7 @@
 import { extend, useThree, useFrame } from '@react-three/fiber'
-import { Html, Float, Text } from '@react-three/drei'
+import { useHelper, useGLTF, Float, Text } from '@react-three/drei'
 import { useState, useEffect, useRef } from 'react'
+import { DirectionalLightHelper } from 'three'
 import { Perf } from 'r3f-perf'
 import { Name } from './shaders/name/Name.jsx'
 
@@ -9,6 +10,10 @@ extend({ Name })
 export default function Experience() {
     const { camera } = useThree()
     const mouse = useRef({ x: 0, y: 0 })
+    const dirLightRef = useRef()
+    const guitar = useGLTF('./models/lespaul/scene.gltf')
+
+    // useHelper(dirLightRef, DirectionalLightHelper, 1, 'hotpink')
 
     useEffect(() => {
         const handleMouseMove = (event) => {
@@ -39,6 +44,10 @@ export default function Experience() {
             <Perf position="top-left" />
             <color args={['#00aeff']} attach="background" />
 
+            {/* <ambientLight intensity={1} position={[0,-2,1]}/>
+            <directionalLight ref={dirLightRef} position={[0,0,1]} /> */}
+
+
             <Float
                 speed={5} 
                 rotationIntensity={0.25} 
@@ -57,6 +66,12 @@ export default function Experience() {
                     gohyun
                     {/* <name ref={mouse} uColor="white" /> */}
                 </Text>
+                {/* <primitive object={guitar.scene}
+                    rotation-x={Math.PI / 2}
+                    rotation-y={Math.PI / 2}
+                    scale={2.5}
+                    position-x={0}
+                /> */}
             </Float>
         </>
     )

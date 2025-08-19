@@ -56,7 +56,7 @@ export default function Cursor() {
     function handleCursorHover(isHovering) {
       isHoveringClickable = isHovering
       gsap.to(cursor, {
-        scale: isHovering ? 0.5 : 1,
+        scale: isHovering ? 1.5 : 1,
         duration: 0.3,
         ease: 'power2.out',
       })

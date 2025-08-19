@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gibson Les Paul Custom (Bocchi the Rock)
+* source:	https://sketchfab.com/3d-models/gibson-les-paul-custom-bocchi-the-rock-f87ec6ae6d904cb592c687f91f60f81f
+* author:	Insomnia.blend (https://sketchfab.com/Insomnia.blend)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gibson Les Paul Custom (Bocchi the Rock)" (https://sketchfab.com/3d-models/gibson-les-paul-custom-bocchi-the-rock-f87ec6ae6d904cb592c687f91f60f81f) by Insomnia.blend (https://sketchfab.com/Insomnia.blend) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
