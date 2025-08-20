@@ -1,19 +1,20 @@
 import { extend, useThree, useFrame } from '@react-three/fiber'
-import { useHelper, useGLTF, Float, Text } from '@react-three/drei'
+import { Environment, OrbitControls, Clouds, Cloud, useGLTF, Float } from '@react-three/drei'
 import { useState, useEffect, useRef } from 'react'
-import { DirectionalLightHelper } from 'three'
 import { Perf } from 'r3f-perf'
 import { Name } from './shaders/name/Name.jsx'
+import * as THREE from 'three'
+import MainText from './components/MainText.jsx'
+import Model from './components/Model.jsx'
 
 extend({ Name })
 
 export default function Experience() {
     const { camera } = useThree()
     const mouse = useRef({ x: 0, y: 0 })
-    const dirLightRef = useRef()
-    const guitar = useGLTF('./models/lespaul/scene.gltf')
+    const directionalLight = useRef()
 
-    // useHelper(dirLightRef, DirectionalLightHelper, 1, 'hotpink')
+    // useHelper(directionalLight, THREE.DirectionalLightHelper, 1)
 
     useEffect(() => {
         const handleMouseMove = (event) => {
@@ -25,28 +26,48 @@ export default function Experience() {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
-    useFrame(() => {
+    useFrame((state) => {
+        // camera
         const yMaxRotation = 0.025
-        const xMaxRotation = 0.1
-        const zMaxRotation = 0.05
+        const xMaxRotation = 0.05
 
         const targetX = mouse.current.y * yMaxRotation    
         const targetY = -mouse.current.x * xMaxRotation   
-        const targetZ = -mouse.current.x * zMaxRotation
 
         camera.rotation.x += (targetX - camera.rotation.x) * 0.05
         camera.rotation.y += (targetY - camera.rotation.y) * 0.05
-        camera.rotation.z += (targetZ - camera.rotation.z) * 0.05
+
+
+        // directionalLight
+        const time = state.clock.elapsedTime
+        const radius = 5
+
+        if (directionalLight.current) {
+            directionalLight.current.position.x = Math.sin(time * 0.2) * radius
+            directionalLight.current.position.z = -5
+            directionalLight.current.position.y = 2  
+
+            directionalLight.current.lookAt(0, 0, 0)
+        }
     })
 
     return (
         <>
-            <Perf position="top-left" />
-            <color args={['#00aeff']} attach="background" />
+            {/* <Perf position="top-left" /> */}
+            <color attach="background" args={['#0057b8']} />
 
-            {/* <ambientLight intensity={1} position={[0,-2,1]}/>
-            <directionalLight ref={dirLightRef} position={[0,0,1]} /> */}
+            <Float >
+                <Clouds material={THREE.MeshBasicMaterial}>
+                    <Cloud position={[0, -7, 0]} segments={40} bounds={[10, 2, 2]} volume={10} color="white" />
+                    <Cloud position={[0, -6, 0]} seed={1} scale={2} volume={5} color='white' fade={100} />
+                </Clouds>
+            </Float>
+            {/* <OrbitControls /> */}
+            <Environment preset="city" />
 
+            <ambientLight intensity={1.5} color={'#b5e4ff'} />
+            <directionalLight position={[0, -5, -10]} intensity={ 5 } color={'#b5e4ff'}/>
+            <directionalLight ref={ directionalLight } position={[10, 0, -10]} intensity={ 10 } color={'#b5e4ff'}/>
 
             <Float
                 speed={5} 
@@ -54,25 +75,11 @@ export default function Experience() {
                 floatIntensity={1} 
                 floatingRange={[-0.05, 0.05]} 
             >
-                <Text
-                    font="./fonts/Poppins-Medium.ttf"
-                    fontSize={1}
-                    color="white"
-                    anchorX="center"
-                    anchorY="middle"
-                    textAlign='center'
-                    maxWidth={2}
-                >
-                    gohyun
-                    {/* <name ref={mouse} uColor="white" /> */}
-                </Text>
-                {/* <primitive object={guitar.scene}
-                    rotation-x={Math.PI / 2}
-                    rotation-y={Math.PI / 2}
-                    scale={2.5}
-                    position-x={0}
-                /> */}
+                <MainText />
             </Float>
+
+            <Model position={[0.5, -4.75, 3]}/>
+
         </>
     )
 }

@@ -1,105 +1,109 @@
 import { useEffect } from 'react'
-import '../styles/cursor.css'
+import { useProgress } from '@react-three/drei'
 import { gsap } from 'gsap'
 
+import '../styles/cursor.css'
+
 export default function Cursor() {
-  useEffect(() => {
-    if ('ontouchstart' in window) return
+    const { active } = useProgress()
 
-    const cursor = document.getElementById('cursor')
-    const pos = { x: 0, y: 0 }
-    const vel = { x: 0, y: 0 }
-    let targetPos = { x: 0, y: 0 }
-    let isHoveringClickable = false
+    useEffect(() => {
+        if ('ontouchstart' in window) return
 
-    const setX = gsap.quickSetter(cursor, 'x', 'px')
-    const setY = gsap.quickSetter(cursor, 'y', 'px')
-    const setRotation = gsap.quickSetter(cursor, 'rotate', 'deg')
-    const setScaleX = gsap.quickSetter(cursor, 'scaleX')
-    const setScaleY = gsap.quickSetter(cursor, 'scaleY')
-    const setOpacity = gsap.quickSetter(cursor, 'opacity')
+        const cursor = document.getElementById('cursor')
+        const pos = { x: 0, y: 0 }
+        const vel = { x: 0, y: 0 }
+        let targetPos = { x: 0, y: 0 }
+        let isHoveringClickable = false
 
-    function getScale(dx, dy) {
-      const distance = Math.sqrt(dx * dx + dy * dy)
-      return Math.min(distance / 50, 0.45)
-    }
+        const setX = gsap.quickSetter(cursor, 'x', 'px')
+        const setY = gsap.quickSetter(cursor, 'y', 'px')
+        const setRotation = gsap.quickSetter(cursor, 'rotate', 'deg')
+        const setScaleX = gsap.quickSetter(cursor, 'scaleX')
+        const setScaleY = gsap.quickSetter(cursor, 'scaleY')
+        const setOpacity = gsap.quickSetter(cursor, 'opacity')
 
-    function getAngle(dx, dy) {
-      return (Math.atan2(dy, dx) * 180) / Math.PI
-    }
+        function getScale(dx, dy) {
+        const distance = Math.sqrt(dx * dx + dy * dy)
+        return Math.min(distance / 50, 0.45)
+        }
 
-    function update() {
-      const rotation = getAngle(vel.x, vel.y)
-      const scale = getScale(vel.x, vel.y)
+        function getAngle(dx, dy) {
+        return (Math.atan2(dy, dx) * 180) / Math.PI
+        }
 
-      setX(pos.x)
-      setY(pos.y)
-      setRotation(rotation)
+        function update() {
+        const rotation = getAngle(vel.x, vel.y)
+        const scale = getScale(vel.x, vel.y)
 
-      if (!isHoveringClickable) {
-        setScaleX(1 + scale)
-        setScaleY(1 - scale)
-      }
-    }
+        setX(pos.x)
+        setY(pos.y)
+        setRotation(rotation)
 
-    function animate() {
-      const speed = 0.35
-      pos.x += (targetPos.x - pos.x) * speed
-      pos.y += (targetPos.y - pos.y) * speed
-      vel.x = targetPos.x - pos.x
-      vel.y = targetPos.y - pos.y
+        if (!isHoveringClickable) {
+            setScaleX(1 + scale)
+            setScaleY(1 - scale)
+        }
+        }
 
-      update()
-      requestAnimationFrame(animate)
-    }
+        function animate() {
+        const speed = 0.35
+        pos.x += (targetPos.x - pos.x) * speed
+        pos.y += (targetPos.y - pos.y) * speed
+        vel.x = targetPos.x - pos.x
+        vel.y = targetPos.y - pos.y
 
-    function handleCursorHover(isHovering) {
-      isHoveringClickable = isHovering
-      gsap.to(cursor, {
-        scale: isHovering ? 1.5 : 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      })
-    }
+        update()
+        requestAnimationFrame(animate)
+        }
 
-    function hideCursor() {
-      gsap.to(cursor, {
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-      })
-    }
+        function handleCursorHover(isHovering) {
+        isHoveringClickable = isHovering
+        gsap.to(cursor, {
+            scale: isHovering ? 1.5 : 1,
+            duration: 0.3,
+            ease: 'power2.out',
+        })
+        }
 
-    function showCursor() {
-      gsap.to(cursor, {
-        opacity: 1,
-        duration: 0.7,
-        ease: 'power2.out',
-      })
-    }
+        function hideCursor() {
+        gsap.to(cursor, {
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+        })
+        }
 
-    window.addEventListener('mousemove', (e) => {
-      targetPos.x = e.clientX
-      targetPos.y = e.clientY
-      update()
-    })
+        function showCursor() {
+        gsap.to(cursor, {
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power2.out',
+        })
+        }
 
-    document.querySelectorAll('a, button, [role=button], [type=button]')
-      .forEach((el) => {
-        el.addEventListener('mouseenter', () => handleCursorHover(true))
-        el.addEventListener('mouseleave', () => handleCursorHover(false))
-      })
+        window.addEventListener('mousemove', (e) => {
+        targetPos.x = e.clientX
+        targetPos.y = e.clientY
+        update()
+        })
 
-    document.addEventListener('mouseleave', hideCursor)
-    document.addEventListener('mouseenter', showCursor)
+        document.querySelectorAll('a, button, [role=button], [type=button]')
+        .forEach((el) => {
+            el.addEventListener('mouseenter', () => handleCursorHover(true))
+            el.addEventListener('mouseleave', () => handleCursorHover(false))
+        })
 
-    document.querySelectorAll('iframe').forEach((iframe) => {
-      iframe.addEventListener('mouseenter', hideCursor)
-      iframe.addEventListener('mouseleave', showCursor)
-    })
+        document.addEventListener('mouseleave', hideCursor)
+        document.addEventListener('mouseenter', showCursor)
 
-    animate()
-  }, [])
+        document.querySelectorAll('iframe').forEach((iframe) => {
+        iframe.addEventListener('mouseenter', hideCursor)
+        iframe.addEventListener('mouseleave', showCursor)
+        })
 
-  return <div id="cursor" />
+        animate()
+    }, [])
+
+    return <div id="cursor" />
 }

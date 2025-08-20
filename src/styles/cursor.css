@@ -17,5 +17,5 @@
   will-change: width, height, transform, border;
   z-index: 99999;
   pointer-events: none;
-  /* mix-blend-mode: difference; */
+  mix-blend-mode: difference;
 }
