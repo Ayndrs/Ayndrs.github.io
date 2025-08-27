@@ -1,29 +1,48 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 50px 0;
-    /* background: rgba(0,0,0,0.3); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 50px 0;
+  /* background: rgba(0,0,0,0.3); */
 }
 
 .navbar-container {
-    margin: 0 auto; 
-    display: flex;
-    justify-content: flex-end; 
-    padding: 0 75px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;  /* Split left and right */
+  align-items: center;
+  padding: 0 75px;
+}
+
+.navbar-left,
+.navbar-right {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar a {
+.navbar-left a {
+  position: relative;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Kenoky', sans-serif;
+  text-decoration: none;
+}
+
+.navbar-right a {
   position: relative;
   color: white;
   font-size: 24px;
@@ -32,7 +51,7 @@
   text-decoration: none;
 }
 
-.navbar a::after {
+.navbar-right a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -43,12 +62,18 @@
   transition: width 0.3s ease;
 }
 
-.navbar a:hover::after {
+.navbar-right a:hover::after {
   width: 100%;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('./fonts/Poppins-Regular.ttf') format('truetype');
-    font-style: normal;
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kenoky';
+  src: url('./fonts/KenokyLight.ttf') format('truetype');
+  font-style: normal;
 }
