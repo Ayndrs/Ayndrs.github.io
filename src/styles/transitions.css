@@ -1,0 +1,75 @@
+.scene-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.scene-transition.fade-out {
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+  filter: blur(2px);
+}
+
+.scene-transition.fade-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  filter: blur(0px);
+}
+
+/* Smooth background color transitions */
+canvas {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navbar link hover effects */
+.navbar a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.navbar a:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Remove underline effect for logo (GOHYUN) */
+.navbar-left a::after {
+  display: none;
+}
+
+/* Active scene indicator */
+.navbar a.active {
+  font-weight: bold;
+  color: #b5e4ff !important;
+}
+
+.navbar a.active::after {
+  width: 100%;
+  background: #b5e4ff;
+}
+
+/* Scene loading animation */
+.scene-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}

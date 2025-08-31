@@ -12,10 +12,12 @@
     height: 40px;
     width: 40px;
     fill: rgba(255, 255, 255, 1);
-    transition: fill 0.2s, stroke 0.2s;
+    transition: fill 0.2s, stroke 0.2s, box-shadow 0.3s ease;
     cursor: pointer;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .container svg:hover {
-    fill: rgba(256, 256, 256, 0.5); 
+    fill: rgba(256, 256, 256, 0.5);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
