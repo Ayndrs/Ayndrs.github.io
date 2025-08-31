@@ -7,13 +7,7 @@ import Cursor from './components/Cursor.jsx'
 import Navbar from './components/Navbar.jsx'
 import Socials from './components/Socials.jsx'
 
-import { TransitionMaterial } from "./components/TransitionMaterial";
-
 import './styles/style.css'
-
-extend({
-  TransitionMaterial,
-});
 
 export default function App() {
   return (
