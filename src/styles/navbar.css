@@ -33,25 +33,36 @@
   padding: 0;
 }
 
-.navbar-left a {
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.navbar-left .nav-button {
   position: relative;
   color: white;
   font-size: 32px;
   font-weight: bold;
   font-family: 'Kenoky', sans-serif;
-  text-decoration: none;
 }
 
-.navbar-right a {
+.navbar-right .nav-button {
   position: relative;
   color: white;
   font-size: 24px;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  text-decoration: none;
 }
 
-.navbar-right a::after {
+.nav-button.active {
+  color: #ffffff;
+}
+
+.navbar-right .nav-button::after {
   content: '';
   position: absolute;
   left: 0;
@@ -62,18 +73,23 @@
   transition: width 0.3s ease;
 }
 
-.navbar-right a:hover::after {
+.navbar-right .nav-button:hover::after {
+  width: 100%;
+}
+
+.navbar-right .nav-button.active::after {
+  background-color: #ffffff;
   width: 100%;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Kenoky';
-  src: url('./fonts/KenokyLight.ttf') format('truetype');
+  src: url('/fonts/KenokyLight.ttf') format('truetype');
   font-style: normal;
 }
