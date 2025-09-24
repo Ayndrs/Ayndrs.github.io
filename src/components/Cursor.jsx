@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useProgress } from '@react-three/drei'
 import { gsap } from 'gsap'
 
@@ -6,9 +6,18 @@ import '../styles/cursor.css'
 
 export default function Cursor() {
     const { active } = useProgress()
+    const [isMobile, setIsMobile] = useState(false)
 
     useEffect(() => {
-        if ('ontouchstart' in window) return
+        const checkMobile = () => setIsMobile(('ontouchstart' in window) || window.innerWidth < 768)
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
+
+    useEffect(() => {
+        // Disable cursor on mobile devices
+        if (isMobile) return
 
         const cursor = document.getElementById('cursor')
         const pos = { x: 0, y: 0 }
@@ -103,7 +112,8 @@ export default function Cursor() {
         })
 
         animate()
-    }, [])
+    }, [isMobile])
 
+    if (isMobile) return null
     return <div id="cursor" />
 }

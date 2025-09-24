@@ -20,14 +20,27 @@ export default function HomeScene() {
             mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1
         }
 
+        const handleTouchMove = (event) => {
+            if (event.touches.length > 0) {
+                const touch = event.touches[0]
+                mouse.current.x = (touch.clientX / window.innerWidth) * 2 - 1
+                mouse.current.y = -(touch.clientY / window.innerHeight) * 2 + 1
+            }
+        }
+
         window.addEventListener('mousemove', handleMouseMove)
-        return () => window.removeEventListener('mousemove', handleMouseMove)
+        window.addEventListener('touchmove', handleTouchMove, { passive: true })
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+            window.removeEventListener('touchmove', handleTouchMove)
+        }
     }, [])
 
     useFrame((state) => {
-        // camera
-        const yMaxRotation = 0.025
-        const xMaxRotation = 0.05
+        // camera - reduce movement on mobile
+        const isMobile = window.innerWidth < 768
+        const yMaxRotation = isMobile ? 0.01 : 0.025
+        const xMaxRotation = isMobile ? 0.02 : 0.05
 
         const targetX = mouse.current.y * yMaxRotation    
         const targetY = -mouse.current.x * xMaxRotation   

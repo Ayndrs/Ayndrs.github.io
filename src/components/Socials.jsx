@@ -1,9 +1,11 @@
 import MagneticButton from './MagneticButton.jsx'
 import '../styles/socials.css'
+import { useScene } from '../contexts/SceneContext'
 
 export default function Socials() {
+  const { currentScene } = useScene()
   return (
-    <div className='container'>
+    <div className={`container ${currentScene === 'projects' ? 'light' : ''}`}>
         <MagneticButton>
             <a href="https://github.com/ayndrs" target="_blank" rel="noopener noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">

@@ -1,8 +1,21 @@
 import { Fluid } from '@whatisjery/react-fluid-distortion';
 import { EffectComposer, DepthOfField, Bloom } from '@react-three/postprocessing';
 import { Text } from '@react-three/drei'
+import { useState, useEffect } from 'react'
 
 export default function MainText() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <>
         <EffectComposer>
@@ -32,24 +45,24 @@ export default function MainText() {
 
         <Text
             font="./fonts/KenokyLight.ttf"
-            fontSize={1}
+            fontSize={isMobile ? 0.6 : 1}
             color="white"
             anchorX="center"
             anchorY="middle"
             textAlign='center'
-            maxWidth={2}
+            maxWidth={isMobile ? 1.5 : 2}
             position={[0, 0.25, 0]}
         >
             gohyun
         </Text>
         <Text
             font="./fonts/Poppins-Light.ttf"
-            fontSize={0.2}
+            fontSize={isMobile ? 0.15 : 0.2}
             color="white"
             anchorX="center"
             anchorY="middle"
             textAlign='center'
-            maxWidth={2}
+            maxWidth={isMobile ? 1.5 : 2}
             position={[0, -0.5, 0]}
         >
             software developer

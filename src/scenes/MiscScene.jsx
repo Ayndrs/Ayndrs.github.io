@@ -38,7 +38,7 @@ export default function MiscScene() {
 
     return (
         <>
-            <color attach="background" args={['#2d1b69']} />
+            <color attach="background" args={['#0057b8']} />
             
             <Environment preset="sunset" />
             
