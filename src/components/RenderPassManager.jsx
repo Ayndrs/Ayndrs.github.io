@@ -36,7 +36,7 @@ export default function RenderPassManager({ children }) {
         progress: 0,
         duration: 1.2, // seconds
         startTime: 0,
-        transitionType: 'fade' // 'fade', 'slide', 'zoom', 'wipe'
+        transitionType: 'fade'
     })
     const hasInitialized = useRef(false)
     
@@ -145,6 +145,7 @@ export default function RenderPassManager({ children }) {
                 fullscreenQuad.material.uniforms.fromTexture.value = renderTargets[transitionState.current.fromScene]?.texture
                 fullscreenQuad.material.uniforms.toTexture.value = renderTargets[currentScene]?.texture
                 fullscreenQuad.material.uniforms.resolution.value.set(size.width, size.height)
+                
                 // Set direction based on scene order: home(0), projects(1), misc(2)
                 const order = { home: 0, projects: 1, misc: 2 }
                 const fromIdx = order[transitionState.current.fromScene] ?? 0

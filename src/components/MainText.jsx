@@ -37,9 +37,9 @@ export default function MainText() {
             />
 
             <DepthOfField
-                focusDistance={0.015}   // Lower = closer focus plane
-                focalLength={0.03}      // Higher = stronger blur
-                bokehScale={2}          // Size of blur circle
+                focusDistance={0.015}
+                focalLength={0.03}
+                bokehScale={2}  
             />
         </EffectComposer>
 
