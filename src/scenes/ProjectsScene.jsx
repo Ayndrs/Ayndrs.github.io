@@ -87,9 +87,9 @@ export default function ProjectsScene() {
     const baseOffset = isMobile ? -2: -1
     const { currentScene } = useScene()
     const projects = [
+        { src: '/Tile_Frenzy.png', title: 'Tile Frenzy 1v1', url: 'https://github.com/Ayndrs/Tile-Frenzy-1v1/' },
         { src: '/MrRecipe.png', title: 'Mr. Recipe', url: 'https://github.com/ewbyf/MrRecipe' },
         { src: '/Bocchi.png', title: 'Bocchi Guesser', url: 'https://github.com/Ayndrs/Bocchi-Guesser' },
-        { src: '/idk.png', title: 'Coming Soon', url: '' },
         { src: '/idk.png', title: 'Coming Soon', url: '' },
     ]
     const columns = isMobile ? 1 : 2
