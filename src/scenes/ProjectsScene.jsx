@@ -89,6 +89,7 @@ export default function ProjectsScene() {
     const projects = [
         { src: '/Tile_Frenzy.png', title: 'Tile Frenzy 1v1', url: 'https://github.com/Ayndrs/Tile-Frenzy-1v1/' },
         { src: '/MrRecipe.png', title: 'Mr. Recipe', url: 'https://github.com/ewbyf/MrRecipe' },
+        { src: '/lespaul.png', title: 'Les Paul Showcase', url: 'https://github.com/Ayndrs/les-paul-showcase' },
         { src: '/Bocchi.png', title: 'Bocchi Guesser', url: 'https://github.com/Ayndrs/Bocchi-Guesser' },
         { src: '/idk.png', title: 'Coming Soon', url: '' },
     ]
